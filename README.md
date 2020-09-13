@@ -1,2 +1,2 @@
 # API-Proyect-Pokemon
-![](./input/pokedex.gif)
+![](./input/Pokedex.gif)
