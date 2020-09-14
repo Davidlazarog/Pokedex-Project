@@ -127,11 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-Pokemon.csv
-
-funciones.py
 funcionesImport.py
 Data cleaning.ipynb
-main.py
 pedefe.py
 .DS_Store
