@@ -1,7 +1,7 @@
-# Importamos las bibliotecas. 
 import sys
 import argparse
-import src.funciones as op
+import src.funcionesPrincipal as op
+import src.funcionesClean as opc
 
 def main():   
     args = op.parse()

@@ -8,6 +8,7 @@ import pandas as pd
 from pandas import json_normalize
 from IPython.display import Image
 import matplotlib.pyplot as plt
+import src.funcionesClean as opc
 
 def altura(x):
     '''
@@ -28,16 +29,6 @@ def peso(x):
     return results["weight"]
 
 
-def cleaning(x):
-    '''
-    Con esta funcion, importamos el dataset y hacemos una pequeña limpieza
-    '''
-    import pandas as pd
-    data = pd.read_csv(x, encoding = 'latin1')
-    data['Type 2'] = data['Type 2'].fillna('No')
-    return data
-
-
 def api(x):
     '''
     Utilizamos esta funcion para unicamente llamar una vez a la API en la funcion
@@ -53,7 +44,7 @@ def graficos():
     Con esta funcion, importamos graficos agrupados por generaciones y los imprimimos.
     '''
     from PIL import Image
-    data = cleaning('input/pokemon.csv')  
+    data = opc.cleaning('input/pokemon.csv')  
     print(f'Por si te interesa, los datos estadisticos agrupados por generaciones son: ')
     total_gen= data.groupby("Generation").agg({"Attack":"mean", "Defense":"mean",
     }).plot.line()
@@ -77,7 +68,7 @@ def pokemon(x):
     '''
     Con esta funcion, cogemos en nombre de un pokemon y devolvemos sus estadisticas
     '''
-    data = cleaning('input/pokemon.csv')
+    data = opc.cleaning('input/pokemon.csv')
     x= x.lower()
     results = api(x)
     print(f' Te presentamos a {x} , si te esfuerzas, podras ser su amigo, aqui van sus estadisticas:' )
@@ -100,7 +91,7 @@ def poke_num(x):
     '''
     Con esta funcion, cogemos en numero de un pokemon y sacamos su nombre y estadisticas
     '''
-    data = cleaning('input/pokemon.csv')
+    data = opc.cleaning('input/pokemon.csv')
     results = api(x)
     x = int(x)
     name = data[(data["#"]== x)]
@@ -124,7 +115,7 @@ def generationgb(x):
     '''
     Con esta funcion, sacamos las estadisticas de una funcion.
     '''
-    data = cleaning('input/pokemon.csv')
+    data = opc.cleaning('input/pokemon.csv')
     x = int(x)
     print(f' Los datos estadisticos de la generacion {x} son:' )
     data1 = data[(data["Generation"]== x)]
