@@ -1,4 +1,4 @@
-# API-Proyect-Pokemon
+# API-Pokedex-Pokemon
 ![](./input/Pokedex.gif)
 
 Dataset en Kaggle https://www.kaggle.com/abcsds/pokemon
